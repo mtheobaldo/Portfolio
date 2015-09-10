@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block 'title' %}List of Case studies{% endblock %}
+
+{% block 'content' %}
+{% if casestudy_list %}
+	<h1>Here are my case studies</h1>
+	<ul>
+	{% for study in casestudy_list %}
+
+	<li><a href="{% url 'casestudy:detail' study.id %}">{{study.name}}</a> - {{study.description}}</li>
+
+	{% endfor %}
+	</ul>
+
+{% else %}
+
+	<p>No case studies to show.</p>
+
+{% endif %}
+{% endblock %}
